@@ -1,25 +1,23 @@
 package org.ex.steps;
 
 import com.github.javafaker.Faker;
-import lombok.Getter;
 
-@Getter
 public class BaseStep {
-    private static final Faker faker = new Faker();
+    private static final String LOGIN;
+    private static final String PASSWORD;
+    private static final Faker faker;
 
-    private static final ThreadLocal<String> loginThreadLocal = ThreadLocal.withInitial(() ->
-            faker.name().firstName()
-                    + "_MyTestOnSelenideCucumber_"
-                    + faker.name().firstName());
-
-    private static final ThreadLocal<String> passwordThreadLocal = ThreadLocal.withInitial(() ->
-            faker.internet().password());
-
-    public String getLogin() {
-        return loginThreadLocal.get();
+    static {
+        faker = new Faker();
+        LOGIN = faker.name().firstName()
+                + "_MyTestOnSelenideCucumber_"
+                + faker.name().firstName();
+        PASSWORD = faker.internet().password();
     }
-
-    public String getPassword() {
-        return passwordThreadLocal.get();
+    public static String getLogin() {
+        return LOGIN;
+    }
+    public static String getPassword() {
+        return PASSWORD;
     }
 }

@@ -15,7 +15,7 @@ public class FakeActionsPage  extends Page{
         return this;
     }
 
-    public void printFakeList() {
-        System.out.println("FakeList test:  "+fakeList);
+    public void printFakeList(String str) {
+        System.out.println("FakeList test_"+str+":  "+fakeList);
     }
 }

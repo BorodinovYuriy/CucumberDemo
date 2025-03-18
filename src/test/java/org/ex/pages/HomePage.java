@@ -1,34 +1,27 @@
 package org.ex.pages;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage extends Page{
 
-    List<String> fakeList;
+SelenideElement welcomeLogin = $("#logout2");
+SelenideElement nameOfUser = $("#nameofuser");
+SelenideElement homeLink = $(".nav-link[href='index.html']");
 
+    @Step("Проверка наличия имени пользователя в Welcome линке")
     public boolean isRegistered(String username) {
-        $("#logout2").shouldBe(visible);
-        return $("#nameofuser").getText().contains(username);
+        welcomeLogin.shouldBe(visible);
+        return nameOfUser.getText().contains(username);
     }
-    public HomePage clickHome(){
-        $(".nav-link[href='index.html']").click();
-        return this;
-    }
-    public HomePage setFakeList(){
-        fakeList = new ArrayList<>();
-
-        fakeList.add("один");
-        fakeList.add("два");
-        fakeList.add("три");
-        return this;
+    @Step("Клик Home линк")
+    public <T extends Page> T clickHome(Class<T> typeNextPage){
+        homeLink.click();
+        return typeNextPage.cast(page(typeNextPage));
     }
 
-    public HomePage getFakeList() {
-        System.out.println(fakeList);
-        return this;
-    }
 }

@@ -7,16 +7,18 @@ import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 import org.ex.pages.FakeActionsPage;
 import org.ex.pages.HomePage;
+import org.junit.jupiter.api.Assertions;
 
 @Slf4j
 public class FakeActionSteps4 extends BaseStep {
-    HomePage homePage;
     FakeActionsPage fakePage;
 
     @Given("Пользователь авторизован на сайте4")
     public void isUserLogIn() {
-        homePage = new HomePage().clickHome();
-        homePage.isRegistered(getLogin());
+        Assertions.assertTrue(new HomePage()
+                        .clickHome(HomePage.class)
+                        .isRegistered(getLogin())
+                ,"Log пользователя не отображен в блоке Welcome");
     }
 
     @When("Задаём setFakeList4")
@@ -26,6 +28,6 @@ public class FakeActionSteps4 extends BaseStep {
 
     @Then("Получаем getFakeList4")
     public void printFakeList() {
-       fakePage.printFakeList();
+       fakePage.printFakeList("4");
     }
 }

@@ -29,6 +29,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.10.1</version>
+            <scope>test</scope>
+        </dependency>
 
         <!--Аллюр-->
         <dependency>
@@ -118,8 +124,8 @@
                     <argLine>
                         -Dcucumber.plugin="io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dorg.aspectj.weaver.showWeaveInfo=true
-                        -Dcucumber.features=src/test/resources/features
+                        -Dorg.aspectj.weaver.showWeaveInfo=false
+                        -Daj.weaving.verbose=false
                         -Dcucumber.glue=org.ex.steps
                     </argLine>
                     <includes>
