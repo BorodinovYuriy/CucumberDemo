@@ -2,7 +2,7 @@ package org.ex.steps;
 
 import com.github.javafaker.Faker;
 
-public class BaseStep {
+public class BaseSteps {
     private static final String LOGIN;
     private static final String PASSWORD;
     private static final Faker faker;
@@ -20,4 +20,6 @@ public class BaseStep {
     public static String getPassword() {
         return PASSWORD;
     }
+
+
 }

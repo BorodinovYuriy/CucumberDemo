@@ -1,21 +1,14 @@
 package org.ex.steps;
 
-import com.codeborne.selenide.Screenshots;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.qameta.allure.Allure;
 import org.ex.pages.BeforeLogPage;
 import org.ex.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import static org.ex.steps.BaseStep.getLogin;
-import static org.ex.steps.BaseStep.getPassword;
+import static org.ex.steps.BaseSteps.getLogin;
+import static org.ex.steps.BaseSteps.getPassword;
 
 //Для каждого сценария - делается новый экземпляр Hooks!!!
 

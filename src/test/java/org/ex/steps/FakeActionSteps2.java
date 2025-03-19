@@ -10,17 +10,11 @@ import org.ex.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 
 @Slf4j
-public class FakeActionSteps2 extends BaseStep {
+public class FakeActionSteps2 extends BaseSteps {
     HomePage homePage;
     FakeActionsPage fakePage;
 
-    @Given("Пользователь авторизован на сайте2")
-    public void isUserLogIn() {
-        Assertions.assertTrue(new HomePage()
-                        .clickHome(HomePage.class)
-                        .isRegistered(getLogin())
-                ,"Log пользователя не отображен в блоке Welcome");
-    }
+
 
     @When("Задаём setFakeList2")
     public void setFakeList() {
